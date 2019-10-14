@@ -2,6 +2,7 @@
 misc utils
 '''
 from pathlib import Path
+from pprint import pprint
 from types import ModuleType
 from tqdm import tqdm
 
@@ -13,6 +14,9 @@ import os
 IMAGENET_MEAN = [0.485, 0.456, 0.406]
 IMAGENET_STD  = [0.229, 0.224, 0.225]
 IMAGENET_NORMALIZATION = dict(mean=IMAGENET_MEAN, std=IMAGENET_STD)
+INVERSE_IMAGENET_MEAN = [-mean / std for mean, std in zip(IMAGENET_MEAN, IMAGENET_STD)]
+INVERSE_IMAGENET_STD  = [1.0 / std for std in IMAGENET_STD]
+INVERSE_IMAGENET_NORMALIZATION = dict(mean=INVERSE_IMAGENET_MEAN, std=INVERSE_IMAGENET_STD)
 
 def get_dataset_distribution(ds, classes=None, progress=True):
     if hasattr(ds, 'targets'): # if we already have targets, just use those
