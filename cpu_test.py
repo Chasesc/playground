@@ -47,9 +47,15 @@ def parallel(function, *args, quiet=False, process=True):
         for number, result in zip(args, executor.map(function, args)):
             if not quiet: print(f'{function.__name__}({number}) = {result}')
 
+@simpletimer
+def sequential(function, *args, quiet=False):
+    for number, result in zip(args, map(function, args)):
+        if not quiet: print(f'{function.__name__}({number}) = {result}')
+
 def main():
     parallel(is_prime, *(PRIMES*50), quiet=True, process=True)  # 42s
     parallel(is_prime, *(PRIMES*50), quiet=True, process=False) # 150s; GIL makes this horrible
+    sequential(is_prime, *(PRIMES*50), quiet=True)              # 144s! faster than parallel w/ threads
 
 if __name__ == '__main__':
     main()
