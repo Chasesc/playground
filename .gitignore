@@ -2,3 +2,5 @@
 Pipfile.lock
 .DS_Store
 .vscode/
+rust/**/target
+rust/**/*.rs.bk
