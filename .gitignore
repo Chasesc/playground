@@ -4,3 +4,4 @@ Pipfile.lock
 .vscode/
 rust/**/target
 rust/**/*.rs.bk
+__pycache__/
