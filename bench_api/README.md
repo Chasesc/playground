@@ -61,7 +61,7 @@ Percentage of the requests served within a certain time (ms)
  100%    209 (longest request)
  ```
 
- ## Python
+ ## Go
 
  ```
  ❰chase❙~/Dev/playground(git:bench_go_vs_python_api)❱✔≻ ab -n 10000 -c 5 http://0.0.0.0:8080/
@@ -119,4 +119,3 @@ Percentage of the requests served within a certain time (ms)
   99%      1
  100%      1 (longest request)
  ```
- 
