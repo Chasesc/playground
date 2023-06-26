@@ -134,4 +134,8 @@ func connectDb() {
 	}
 
 	Db = db
+
+	if err := Db.Ping(); err != nil {
+		panic(err)
+	}
 }
