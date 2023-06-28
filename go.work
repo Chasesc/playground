@@ -1,0 +1,6 @@
+go 1.20
+
+use (
+	./bench_api/goapi
+	./golang/gophercises/quiz_game
+)
